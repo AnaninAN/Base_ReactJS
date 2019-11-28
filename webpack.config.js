@@ -38,15 +38,21 @@ module.exports = (env = {}) => {
   return {
     mode: isProd ? 'production' : isDev && 'development',
 
-    entry: path.resolve(__dirname, 'src', 'index.js'),
+    entry: path.resolve(__dirname, 'src', 'index.jsx'),
     output: {
       filename: isProd ? 'main-[hash:8].js' : undefined
+    },
+    resolve: {
+      extensions: ['.js', '.jsx'],
+      alias: {
+        components: path.resolve(__dirname, 'src', 'components')
+      }
     },
 
     module: {
       rules: [
         {
-            test: /\.js$/,
+            test: /\.jsx$/,
             exclude: /node_modules/,
             loader: 'babel-loader'
         },
