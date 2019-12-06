@@ -1,3 +1,5 @@
+import './Messenger.css';
+
 import React, { Component } from 'react';
 
 import { MessagesList } from 'components/MessagesList';
@@ -14,7 +16,7 @@ export class Messenger extends Component {
     if (author !== 'Bot') {
       setTimeout(() => {
         this.setState({
-          messages: this.state.messages.concat([{text: `Привет, ${author}! Бот на связи!`, author: 'Bot'}]),
+          messages: [...this.state.messages, {text: `Привет, ${author}! Бот на связи!`, author: 'Bot'}],
         });
       }, 1000);
     }
@@ -30,7 +32,7 @@ export class Messenger extends Component {
     const { messages } = this.state;
 
     return (
-      <div>
+      <div className="messenger">
         <MessagesList items={messages} />
         <MessageForm onSend={this.handleMessageSend} />
       </div>

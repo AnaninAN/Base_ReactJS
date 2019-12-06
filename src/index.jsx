@@ -1,7 +1,8 @@
+import 'assets/main.scss';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/main.scss';
 
-import { Messenger } from 'components/Messenger'
+import { Layout } from 'components/Layout'
 
-ReactDOM.render(<Messenger />, document.getElementById('root'));
+ReactDOM.render(<Layout />, document.getElementById('root'));
