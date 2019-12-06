@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/AnaninAN/Base_ReactJS#readme",
   "dependencies": {
+    "@material-ui/core": "^4.7.0",
+    "@material-ui/icons": "^4.5.1",
+    "classnames": "^2.2.6",
     "core-js": "^3.4.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
