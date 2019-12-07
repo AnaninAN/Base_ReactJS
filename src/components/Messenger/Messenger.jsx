@@ -2,36 +2,10 @@ import './Messenger.scss';
 
 import React, { Component } from 'react';
 
-import { ChatList } from 'components/ChatList';
 import { MessagesList } from 'components/MessagesList';
 import { MessageForm } from 'components/MessageForm';
 
 export class Messenger extends Component {
-  state = {
-    chats: {
-      '1': {
-        id: 1,
-        messages: [
-          { text: 'Привет! Это чат 1', author: 'Bot' }
-        ],
-        name: 'Chat 1',
-      },
-      '2': {
-        id: 2,
-        messages: [
-          { text: 'Привет! Это чат 2', author: 'Bot' }
-        ],
-        name: 'Chat 2',
-      },
-      '3': {
-        id: 3,
-        messages: [
-          { text: 'Привет! Это чат 3', author: 'Bot' }
-        ],
-        name: 'Chat 3',
-      }
-    },
-  }
 
   componentDidUpdate() {
     if (this.messages.length) {
@@ -46,8 +20,7 @@ export class Messenger extends Component {
   }
 
   handleMessageSend = (message) => {
-    const { chats } = this.state;
-    const { match } = this.props;
+    const { chats, match } = this.props;
 
     const chat = chats[match.params.id];
     const messages = [...this.messages, message];
@@ -62,8 +35,7 @@ export class Messenger extends Component {
   }
 
   get messages() {
-    const { chats } = this.state;
-    const { match } = this.props;
+    const { chats, match } = this.props;
 
     let messages = null;
 
@@ -75,13 +47,11 @@ export class Messenger extends Component {
   }
 
   render() {
+    this.state = this.props.chats;
     return (
-      <div className="chat">
-        <ChatList />
-        <div className="messenger">
-          { this.messages ? <MessagesList items={this.messages} /> : 'Выберите чат!' }
-          { this.messages && <MessageForm onSend={this.handleMessageSend} /> }
-        </div>
+      <div className="messenger">
+        { this.messages ? <MessagesList items={this.messages} /> : 'Выберите чат!' }
+        { this.messages && <MessageForm onSend={this.handleMessageSend} /> }
       </div>
     );
   }

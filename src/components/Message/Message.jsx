@@ -16,14 +16,14 @@ export class Message extends Component {
     const { author, text } = this.props;
 
     const classes = classNames('message', {
-      'message-owner': author !== 'Bot',
-      'message-companion': author === 'Bot',
+      'message__owner': author !== 'Bot',
+      'message__companion': author === 'Bot',
     });
 
     return (
       <div className={classes}>
         <div>{text}</div>
-        <div className="message-sender">{author}</div>
+        <div className="message__sender">{author}</div>
       </div>
     );
   }

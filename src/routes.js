@@ -1,16 +1,16 @@
-import { Messenger } from 'components/Messenger';
+import { ChatPage } from 'pages/ChatPage';
 import { AboutPage } from 'pages/AboutPage';
 
 export const routes = [
   {
     path: '/',
     exact: true,
-    component: Messenger,
+    component: ChatPage,
   },
   {
     path: '/chats/:id',
     exact: true,
-    component: Messenger,
+    component: ChatPage,
   },
   {
     path: '/about',
