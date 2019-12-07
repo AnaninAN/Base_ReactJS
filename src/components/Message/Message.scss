@@ -5,15 +5,15 @@
   font-size: 20px;
   margin: 5px;
 
-  &-owner {
+  &__owner {
     align-self: flex-end;
   }
 
-  &-companion {
+  &__companion {
     align-self: flex-start;
   }
 
-  &-sender {
+  &__sender {
     color: gray;
     font-size: 14px;
   }

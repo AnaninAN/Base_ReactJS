@@ -1,4 +1,4 @@
-import './MessagesList.css';
+import './MessagesList.scss';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
