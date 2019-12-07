@@ -39,7 +39,7 @@ module.exports = (env = {}) => {
     mode: isProd ? 'production' : isDev && 'development',
 
     entry: path.resolve(__dirname, 'src', 'index.jsx'),
-    devtool: 'eval-source-map',
+    devtool: isDev ? 'eval-source-map' : 'none',
     output: {
       filename: isProd ? 'main-[hash:8].js' : undefined
     },
