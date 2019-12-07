@@ -1,20 +1,22 @@
 import './Layout.scss';
 
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { Header } from 'components/Header';
 import { ChatList } from 'components/ChatList';
-import { Messenger } from 'components/Messenger';
+import { routes } from 'src/routes';
 
 export class Layout extends Component {
   render() {
     return (
       <div className="layout">
         <Header />
-        <div className="layout-chat">
-          <ChatList />
-          <Messenger />
-        </div>
+        <Router>
+          <Switch>
+            {routes.map((route, idx) => <Route key={idx} {...route} />)}
+          </Switch>
+        </Router>
       </div>
     );
   }
