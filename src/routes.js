@@ -1,16 +1,16 @@
-import { ChatPage } from 'pages/ChatPage';
+import { ChatPageRedux } from 'containers/ChatPageContainer';
 import { AboutPage } from 'pages/AboutPage';
 
 export const routes = [
   {
     path: '/',
     exact: true,
-    component: ChatPage,
+    component: ChatPageRedux,
   },
   {
     path: '/chats/:id',
     exact: true,
-    component: ChatPage,
+    component: ChatPageRedux,
   },
   {
     path: '/about',
