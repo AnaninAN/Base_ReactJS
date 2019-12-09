@@ -46,17 +46,19 @@ module.exports = (env = {}) => {
     resolve: {
       extensions: ['.js', '.jsx'],
       alias: {
-        src: path.resolve(__dirname, 'src'),
         assets: path.resolve(__dirname, 'src', 'assets'),
         components: path.resolve(__dirname, 'src', 'components'),
         pages: path.resolve(__dirname, 'src', 'pages'),
+        actions: path.resolve(__dirname, 'src', 'actions'),
+        containers: path.resolve(__dirname, 'src', 'containers'),
+        reducers: path.resolve(__dirname, 'src', 'reducers'),
       }
     },
 
     module: {
       rules: [
         {
-            test: /\.jsx$/,
+            test: /\.jsx?$/,
             exclude: /node_modules/,
             loader: 'babel-loader'
         },
