@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import { ChatPage } from 'pages/ChatPage';
+import { Messenger } from 'components/Messenger';
 import { load, send } from 'actions/chats';
 
-class ChatPageContainer extends PureComponent {
+class MessengerContainer extends PureComponent {
   componentDidMount() {
     const { loadChats } = this.props;
 
@@ -21,9 +21,9 @@ class ChatPageContainer extends PureComponent {
   }
 
   render() {
-    const { chats, chatId, messages } = this.props;
+    const { chats, messages } = this.props;
     return (
-      <ChatPage chatId={chatId} chats={chats} messages={messages} sendMessage={this.handleMessageSend} />
+      <Messenger chats={chats} messages={messages} sendMessage={this.handleMessageSend} />
     );
   }
 }
@@ -54,4 +54,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export const ChatPageRedux = connect(mapStateToProps, mapDispatchToProps)(ChatPageContainer);
+export const MessengerRedux = connect(mapStateToProps, mapDispatchToProps)(MessengerContainer);

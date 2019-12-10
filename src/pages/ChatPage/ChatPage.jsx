@@ -2,20 +2,20 @@ import './ChatPage.scss';
 
 import React, { Component } from 'react';
 
-import { ChatHeader } from 'components/ChatHeader';
-import { ChatList } from 'components/ChatList';
-import { Messenger } from 'components/Messenger';
+import { ChatHeaderRedux } from 'containers/ChatHeaderContainer';
+import { ChatListRedux } from 'containers/ChatListContainer';
+import { MessengerRedux } from 'containers/MessengerContainer';
 
 export class ChatPage extends Component {
   render() {
-    const { chatId, chats, messages, sendMessage} = this.props;
+    const { match } = this.props;
 
     return (
       <div className="chat-page">
-        <ChatHeader name={chatId && chats[chatId - 1] ? chats[chatId - 1].name : null} />
+        <ChatHeaderRedux match={match} />
         <div className="chat-page__chat">
-          <ChatList chats={chats} />
-          <Messenger messages={messages} sendMessage={sendMessage} />
+          <ChatListRedux />
+          <MessengerRedux match={match} />
         </div>
       </div>
     );
